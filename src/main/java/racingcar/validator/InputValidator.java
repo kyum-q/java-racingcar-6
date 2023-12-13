@@ -10,4 +10,15 @@ public class InputValidator {
         if(!isNonName || !isOverLapName)
             throw new IllegalArgumentException();
     }
+
+    public void validRacingCount(String s) {
+        try {
+            int number = Integer.parseInt(s);
+            if(number <= 0)
+                throw new IllegalArgumentException();
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

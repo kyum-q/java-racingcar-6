@@ -23,4 +23,12 @@ public class InputView {
 
         return Collections.unmodifiableList(names);
     }
+
+    public int requestRacingCount() {
+        System.out.println(RequestMessage.REQUEST_NUMBER_PLAY.getMessage());
+        String s = Console.readLine();
+        validator.validRacingCount(s);
+
+        return Integer.parseInt(s);
+    }
 }
