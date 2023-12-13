@@ -15,8 +15,9 @@ public class InputView {
     }
 
     public List<String> requestName() {
-        System.out.println(RequestMessage.REQUEST_CARS_NAME);
+        System.out.println(RequestMessage.REQUEST_CARS_NAME.getMessage());
         String s = Console.readLine();
+
         List<String> names = Arrays.stream(s.trim().split(",", -1)).toList();
         validator.validCarName(names);
 
