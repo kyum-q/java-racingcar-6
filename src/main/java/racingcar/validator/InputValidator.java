@@ -3,11 +3,12 @@ package racingcar.validator;
 import java.util.List;
 
 public class InputValidator {
+    private final static int maxNameCount = 5;
     public void validCarName(List<String> names) {
         boolean isNonName = names.stream().noneMatch(name -> name.equals(""));
         boolean isOverLapName = names.stream().distinct().count() == names.size();
-
-        if(!isNonName || !isOverLapName)
+        boolean isLessFive = names.stream().allMatch(name -> name.length() <= maxNameCount);
+        if(!isNonName || !isOverLapName || !isLessFive)
             throw new IllegalArgumentException();
     }
 
