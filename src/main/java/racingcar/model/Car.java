@@ -8,6 +8,10 @@ public class Car {
         this.name = name;
     }
 
+    public void forward() {
+        runForward++;
+    }
+
     @Override
     public String toString() {
         String racingResult = "";
@@ -15,6 +19,6 @@ public class Car {
             racingResult += "-";
         }
 
-        return name + " : " + racingResult;
+        return name + " : " + racingResult + "\n";
     }
 }
