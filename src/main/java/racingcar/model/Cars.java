@@ -1,9 +1,10 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class Cars {
+public class Cars implements Comparator<Car> {
     private List<Car> cars;
     public Cars(List<String> names) {
         cars = new ArrayList<>();
@@ -21,9 +22,17 @@ public class Cars {
     }
 
     public String getFinalWinner() {
-        return "";
+        int max = cars.stream().max(this).get().getForward();
+
+        String result = "";
+        for (int i = 0; i < cars.size(); i++) {
+            if(cars.get(i).getForward() == max)
+                result += cars.get(i).getName() + ", ";
+        }
+
+        return String.copyValueOf(result.toCharArray(), 0, result.length()-2);
     }
-    
+
     @Override
     public String toString() {
         String result = "";
@@ -32,5 +41,10 @@ public class Cars {
         }
 
         return result;
+    }
+
+    @Override
+    public int compare(Car o1, Car o2) {
+        return o1.getForward() - o2.getForward();
     }
 }
