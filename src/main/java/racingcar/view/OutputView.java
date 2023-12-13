@@ -11,4 +11,8 @@ public class OutputView {
     public void printRacingResult(Cars cars) {
         System.out.println(cars.toString());
     }
+
+    public void printFinalResult(Cars cars) {
+        System.out.println(PrintMessage.PRINT_FINAL_RESULT_INFO.getMessage() + cars.getFinalWinner());
+    }
 }
