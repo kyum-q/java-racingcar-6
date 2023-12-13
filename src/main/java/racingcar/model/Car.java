@@ -12,6 +12,14 @@ public class Car {
         runForward++;
     }
 
+    public int getForward() {
+        return runForward;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         String racingResult = "";
